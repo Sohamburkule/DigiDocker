@@ -23,4 +23,16 @@ public class HomeController
 	{
 		return "register";
 	}
+	
+	@RequestMapping("/AddDocument")
+	public String AddDocument()
+	{
+		return "AddDocument";
+	}
+	
+	@RequestMapping("/ViewDocument")
+	public String ViewDocument()
+	{
+		return "ViewDocument";
+	}
 }

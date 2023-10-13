@@ -4,44 +4,42 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Register</title>
+<title>Add Document</title>
 <%@include file="/WEB-INF/resources/component/All_Link.jsp"%>
 </head>
-<body style="background-color: #f0f0f0;">
+<body>
 	<%@include file="/WEB-INF/resources/component/Navbar.jsp"%>
 	<div class="container mt-5">
 		<div class="row">
-			<div class="col-md-6 offset-md-3">
+			<div class="col-md-10 offset-md-1">
 				<div class="card">
 					<div class="card-header text-center">
-						<h3>Register Page</h3>
+						<h3>Add your Documents here</h3>
 						<c:if test="${not empty msg }">
 							<p class="fs-3 fw-bold text-success">${msg }</p>
 							<c:remove var="msg" />
 						</c:if>
 					</div>
 					<div class="card-body">
-						<form action="registerUser" method="post">
+						<form action="saveNotes" method="post">
 							<div class="mb-3">
-								<label>Enter Full Name</label> <input type="text"
-									name="fullname" class="form-control">
-							</div>
-
-							<div class="mb-3">
-								<label>Enter Mobile Number</label> <input type="text"
-									name="qualification" class="form-control">
-							</div>
-							<div class="mb-3">
-								<label>Enter Email</label> <input type="email" name="email"
+								<label>Enter Title</label> <input type="text" name="title"
 									class="form-control">
 							</div>
 
 							<div class="mb-3">
-								<label>Enter Password</label> <input type="password"
-									name="password" class="form-control">
+								<label class="form-label" for="customFile">Default file
+									input example</label> <input type="file" class="form-control"
+									id="customFile" />
 							</div>
 
-							<button class="btn btn-primary col-md-12">Register</button>
+							<div class="mb-3">
+								<label>Enter Description</label>
+								<textarea rows="6" cols="" class="form-control"
+									name="descrption"></textarea>
+							</div>
+
+							<button class="btn btn-primary mt-4">Save</button>
 						</form>
 					</div>
 				</div>
