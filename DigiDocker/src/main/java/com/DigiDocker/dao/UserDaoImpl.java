@@ -1,12 +1,15 @@
 package com.DigiDocker.dao;
 
+import javax.transaction.Transactional;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.DigiDocker.entity.User;
 
-
+@Transactional
+@Repository
 public class UserDaoImpl implements UserDao {
 
 	@Autowired
@@ -21,10 +24,10 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public User login(String email, String password) {
 
-		String sql = "from User where email:em and password:pwd";
+		String sql = "from User where email=:em and password=:pwd";
 
 		User user=(User)hibernateTemplate.execute(s -> {
-			@SuppressWarnings({ "deprecation", "rawtypes" })
+			@SuppressWarnings({ "rawtypes" })
 			Query q = s.createQuery(sql);
 			q.setParameter("em", email);
 			q.setParameter("pwd", password);

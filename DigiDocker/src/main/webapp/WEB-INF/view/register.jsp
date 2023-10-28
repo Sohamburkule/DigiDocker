@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +17,8 @@
 				<div class="card">
 					<div class="card-header text-center">
 						<h3>Register Page</h3>
-						<c:if test="${not empty msg}">
-							<p class="fs-3 fw-bold text-success">${msg}</p>
+						<c:if test="${not empty msg }">
+							<p class="mb-3 text-success">${msg }</p>
 							<c:remove var="msg" />
 						</c:if>
 					</div>
