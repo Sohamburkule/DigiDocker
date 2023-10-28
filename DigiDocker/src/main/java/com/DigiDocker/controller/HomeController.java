@@ -1,11 +1,18 @@
 package com.DigiDocker.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.DigiDocker.entity.User;
 
 @Controller
 public class HomeController 
 {
+	
 	@RequestMapping("/home")
 	public String home()
 	{
@@ -34,5 +41,12 @@ public class HomeController
 	public String ViewDocument()
 	{
 		return "ViewDocument";
+	}
+	
+	@RequestMapping(path="/registerUser",method= RequestMethod.POST)
+	public String registerUser(@ModelAttribute User user,HttpSession session) {
+		
+		System.out.println(user);
+		return "redirect:/register";
 	}
 }
