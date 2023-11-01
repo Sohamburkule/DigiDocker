@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,12 +18,13 @@
 					<div class="card-header text-center">
 						<h3>Add your Documents here</h3>
 						<c:if test="${not empty msg }">
-							<p class="fs-3 fw-bold text-success">${msg }</p>
+							<p class="mb-3 text-success">${msg }</p>
 							<c:remove var="msg" />
 						</c:if>
 					</div>
 					<div class="card-body">
-						<form action="saveNotes" method="post">
+						<form action="saveDocuments" method="post">
+
 							<div class="mb-3">
 								<label>Enter Title</label> <input type="text" name="title"
 									class="form-control">
@@ -31,13 +33,13 @@
 							<div class="mb-3">
 								<label class="form-label" for="customFile">Default file
 									input example</label> <input type="file" class="form-control"
-									id="customFile" />
+									name="customFile" id="customFile" />
 							</div>
 
 							<div class="mb-3">
 								<label>Enter Description</label>
-								<textarea rows="6" cols="" class="form-control"
-									name="descrption"></textarea>
+								<textarea rows="5" cols="" class="form-control"
+									name="description"></textarea>
 							</div>
 
 							<button class="btn btn-primary mt-4">Save</button>

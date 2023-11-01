@@ -3,6 +3,7 @@ package com.DigiDocker.config;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.DigiDocker.entity.User;
@@ -19,8 +20,8 @@ public class AuthHandler implements HandlerInterceptor{
 			return true;
 		}
 		else {	
-			//response.sendRedirect("login");
-			response.getWriter().print("<h1><center>Please Login</center></h1>");
+			//response.sendRedirect("error");
+			response.getWriter().print("<h1><center>Your Session has expired !</center></h1>");
 			return false;
 		}
 	}

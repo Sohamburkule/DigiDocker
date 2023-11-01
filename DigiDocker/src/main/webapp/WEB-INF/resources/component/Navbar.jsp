@@ -21,20 +21,20 @@
 
 				<c:if test="${not empty userObj }">
 					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/user/AddDocuments">Add
+						href="${pageContext.request.contextPath}/user/AddDocument">Add
 							Document</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="${pageContext.request.contextPath}/user/viewDocuments">View
+						href="${pageContext.request.contextPath}/user/ViewDocument">View
 							Document</a></li>
 				</c:if>
 			</ul>
 			
 			<form class="d-flex">
 				<c:if test="${empty userObj }">
-					<a href="login"
+					<a href="${pageContext.request.contextPath}/login"
 						class="btn btn-outline-info btn-lg px-3 me-sm-3 fw-bold"
 						type="submit">Login</a>
-					<a href="register" class="btn btn-outline-light btn-lg px-3"
+					<a href="${pageContext.request.contextPath}/register" class="btn btn-outline-light btn-lg px-3"
 						type="submit">Register</a>
 				</c:if>
 
@@ -42,7 +42,7 @@
 					<a href="#"
 						class="btn btn-outline-info btn-lg px-3 me-sm-3 fw-bold"
 						type="submit"> <i class="fa-solid fa-user me-2"></i>${userObj.fullname }</a>
-					<a href="user/logout" class="btn btn-outline-light btn-lg px-3"
+					<a href="${pageContext.request.contextPath}/user/logout" class="btn btn-outline-light btn-lg px-3"
 						type="submit">logout</a>
 				</c:if>
 

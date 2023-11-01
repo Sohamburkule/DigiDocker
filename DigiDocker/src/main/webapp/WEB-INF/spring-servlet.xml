@@ -60,6 +60,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>com.DigiDocker.entity.User</value>
+				<value>com.DigiDocker.entity.Documents</value>
 			</list>
 		</property>
 	</bean>
@@ -73,12 +74,17 @@
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="factory" />
 	</bean>
-	
+
+    <!--Configuring multi-part resolver -->
+	<bean name="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/user/*" />
 			<bean class="com.DigiDocker.config.AuthHandler"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
+
 </beans>
