@@ -23,23 +23,23 @@
 						</c:if>
 					</div>
 					<div class="card-body">
-						<form action="saveDocuments" method="post">
+						<form action="saveDocuments" method="post" enctype="multipart/form-data">
 
 							<div class="mb-3">
-								<label>Enter Title</label> <input type="text" name="title"
-									class="form-control">
+								<label>Enter Title</label> <input type="text" name="FileTitle"
+									class="form-control" required>
 							</div>
 
 							<div class="mb-3">
-								<label class="form-label" for="customFile">Default file
+								<label class="form-label" for="file">Default file
 									input example</label> <input type="file" class="form-control"
-									name="customFile" id="customFile" />
+									name="FileData" id="FileData" required/>
 							</div>
 
 							<div class="mb-3">
 								<label>Enter Description</label>
 								<textarea rows="5" cols="" class="form-control"
-									name="description"></textarea>
+									name="FileDescription" required></textarea>
 							</div>
 
 							<button class="btn btn-primary mt-4">Save</button>
