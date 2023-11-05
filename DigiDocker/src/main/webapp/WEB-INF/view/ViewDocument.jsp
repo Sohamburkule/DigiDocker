@@ -19,7 +19,7 @@
 				<div class="col">
 					<div class="card">
 						<div class="card-body">
-							
+							<img src="<c:url value="/image/Default_docs.jpg" />" class="card-img-top" alt="">
 							<h5>${list.FileTitle }</h5>
 							<p class="card-text">${list.FileDescription }</p>
 						</div>
@@ -34,7 +34,7 @@
 
 		<div class="col">
 			<div class="card">
-				<img src="" class="card-img-top" alt="...">
+				<img src="<c:url value="/image/Default_docs.jpg" />" class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5>Default Card</h5>
 					<p class="card-text">Default Card</p>

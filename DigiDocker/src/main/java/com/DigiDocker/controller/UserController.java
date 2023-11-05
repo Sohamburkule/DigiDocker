@@ -1,8 +1,12 @@
 package com.DigiDocker.controller;
-import javax.servlet.http.HttpSession;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,9 +29,12 @@ public class UserController {
 	}
 
 	@RequestMapping("/ViewDocument")
-	public String ViewDocument() {
+	public String ViewDocument(HttpSession session, Model model) throws IOException {
 
-		
+		User us = (User) session.getAttribute("userObj");
+		List<Documents> list = userDao.getDocumentsByUser(us);
+		model.addAttribute("list", list);
+		System.out.println(list);
 		return "ViewDocument";
 	}
 

@@ -50,19 +50,26 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public List<Documents> getDocumentsByUser(User user) {
 		
-		return null;
+		String sql = "SELECT Documents.FileTitle ,Documents.FileDescription from Documents where user=:us";
+
+		List<Documents> list = hibernateTemplate.execute(s -> {
+			Query q = s.createQuery(sql);
+			q.setEntity("us", user);
+			return q.getResultList();
+		});
+
+		return list;
 	}
 
 	@Override
 	public Documents getDocumentsById(int id) {
-		Documents n = hibernateTemplate.get(Documents.class, id);
-		return n;
+		
+		return hibernateTemplate.get(Documents.class,id);
 	}
 
 	@Override
 	public void deleteDocuments(int id) {		
 		Documents n = hibernateTemplate.get(Documents.class, id);
-		hibernateTemplate.delete(n);
-		
+		hibernateTemplate.delete(n);		
 	}
 }
