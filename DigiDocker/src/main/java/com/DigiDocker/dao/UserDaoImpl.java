@@ -1,13 +1,11 @@
 package com.DigiDocker.dao;
 
 import java.util.List;
-
 import javax.transaction.Transactional;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-
 import com.DigiDocker.entity.Documents;
 import com.DigiDocker.entity.User;
 
@@ -42,7 +40,6 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int saveDocuments(Documents documents) {
-		
 		int i = (Integer) hibernateTemplate.save(documents);
 		return i;		
 	}
@@ -50,8 +47,9 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public List<Documents> getDocumentsByUser(User user) {
 		
-		String sql = "SELECT Documents.FileTitle ,Documents.FileDescription from Documents where user=:us";
+		String sql = "from Documents where user=:us";
 
+		@SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
 		List<Documents> list = hibernateTemplate.execute(s -> {
 			Query q = s.createQuery(sql);
 			q.setEntity("us", user);
@@ -71,5 +69,10 @@ public class UserDaoImpl implements UserDao {
 	public void deleteDocuments(int id) {		
 		Documents n = hibernateTemplate.get(Documents.class, id);
 		hibernateTemplate.delete(n);		
+	}
+
+	@Override
+	public void updateDocuments(Documents documents) {
+		hibernateTemplate.update(documents);		
 	}
 }

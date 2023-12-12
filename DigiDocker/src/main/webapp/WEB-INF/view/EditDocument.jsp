@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Add Document</title>
+<title>Edit Document</title>
 <%@include file="/WEB-INF/resources/component/All_Link.jsp"%>
 </head>
 <body>
@@ -16,34 +16,34 @@
 			<div class="col-md-10 offset-md-1">
 				<div class="card">
 					<div class="card-header text-center">
-						<h3>Add your Documents here</h3>
+						<h3>Update Documents</h3>
 						<c:if test="${not empty msg }">
 							<p class="mb-3 text-success">${msg }</p>
 							<c:remove var="msg" />
 						</c:if>
 					</div>
 					<div class="card-body">
-						<form action="saveDocuments" method="post"
+						<form action="updateDocuments" method="post"
 							enctype="multipart/form-data">
 
 							<div class="mb-3">
 								<label>Enter Title</label> <input type="text" name="Title"
-									class="form-control" required>
+									class="form-control" value="${documents.title }" required>
 							</div>
 
 							<div class="mb-3">
 								<label for="formFile" class="form-label">Insert File
 									Here</label> <input class="form-control" type="file" name="File"
-									id="formFile">
+									id="formFile" value="data:image/jpeg;base64,${documents.fileData}">
 							</div>
 
 							<div class="mb-3">
 								<label>Enter Description</label>
 								<textarea rows="5" cols="" class="form-control"
-									name="Description" required></textarea>
+									name="Description" required>${documents.description }</textarea>
 							</div>
-
-							<button class="btn btn-primary">Save</button>
+							<input type="hidden" name="id" value="${documents.id}">
+							<button class="btn btn-primary">Update</button>
 						</form>
 					</div>
 				</div>
